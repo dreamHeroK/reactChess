@@ -34,19 +34,20 @@ function Chess() {
     if (isHistory) {
       record.splice(historyIndex);
     }
+    setNextType(nextType === "X" ? "O" : "X");
     record.push({
       info: `MOVE TO #${record.length}`,
       board: JSON.stringify(board),
     });
     setIsHistory(0);
     setRecord(record);
-    setNextType(nextType === "X" ? "O" : "X");
   };
 
   const onRecordClick = (index) => {
     setBoard(JSON.parse(record[index].board));
     setIsHistory(1);
     setHistoryIndex(index + 1);
+    setNextType(index % 2 === 0 ? "X" : "O");
   };
 
   const winner = () => {
