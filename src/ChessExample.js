@@ -5,7 +5,7 @@ export default function Game() {
   const [history, setHistory] = useState([
     {
       position: [],
-      squares: [Array(9).fill(null)],
+      squares: Array(9).fill(null),
     },
   ]);
   const [curMove, setCurMove] = useState(0);
@@ -93,6 +93,7 @@ function Board({ xIsNext, squares, onPlay }) {
   if (winner) {
     status = "Winner：" + winner;
   } else {
+    console.log(squares,'ssss')
     if (squares.includes(null)) {
       status = "Next Player:" + (xIsNext ? "X" : "O");
     } else {
